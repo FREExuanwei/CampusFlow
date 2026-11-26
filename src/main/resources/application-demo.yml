@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: CampusFlow Demo
+
+server:
+  address: 127.0.0.1
+  port: 18087
+
+campusflow:
+  auth:
+    issuer: campusflow-demo
+    audience: campusflow-demo-api

@@ -1,0 +1,12 @@
+spring:
+  config:
+    import: "file:./application-local.yml"
+
+campusflow:
+  auth:
+    issuer: campusflow-dev
+    audience: campusflow-dev-api
+  database:
+    jdbc-url: ${campusflow.local.database.dev-jdbc-url}
+    app-user: ${campusflow.local.database.dev-app-user}
+    app-password: ${campusflow.local.database.dev-app-password}

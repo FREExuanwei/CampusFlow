@@ -1,0 +1,6 @@
+org.springframework.boot.EnvironmentPostProcessor=\
+com.campusflow.common.config.MysqlTestRuntime,\
+com.campusflow.common.config.DemoRuntime
+org.springframework.context.ApplicationContextInitializer=\
+com.campusflow.common.config.MysqlTestRuntime,\
+com.campusflow.common.config.DemoRuntime

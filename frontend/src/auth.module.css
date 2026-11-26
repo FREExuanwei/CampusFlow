@@ -1,0 +1,27 @@
+.auth-layout { display: grid; grid-template-columns: minmax(360px, 41%) minmax(0, 1fr); min-height: 100dvh; background: #fff; }
+.auth-content { display: flex; flex-direction: column; min-height: 100dvh; padding: 35px clamp(26px, 5vw, 74px) 27px; }
+.auth-form { margin: auto 0; width: 100%; max-width: 420px; padding: 32px 0; }
+.auth-form h1 { font-size: clamp(2rem, 3vw, 2.85rem); }
+.auth-form > p { margin-top: 12px; color: var(--muted); }
+.auth-form form { display: grid; gap: 17px; margin-top: 26px; }
+.auth-form :global(.field) input { min-height: 48px; }
+.password-field { position: relative; display: block; }
+.password-field > input { padding-right: 45px; }
+.password-field > button { position: absolute; right: 4px; top: 3px; color: #597097; }
+.auth-form .auth-submit { min-height: 48px; justify-content: space-between; padding-inline: 16px; }
+.auth-form .auth-switch { margin-top: 20px; font-size: .91rem; }
+.auth-switch a { font-weight: 700; }
+.auth-form .auth-notice { padding: 8px 11px; border: 1px solid #c4d6f8; background: #f0f5ff; border-radius: 8px; color: #285599; font-size: .9rem; }
+.auth-foot { display: flex; align-items: center; gap: 8px; font-size: .81rem; color: var(--muted); }
+.auth-visual { display: flex; align-items: end; padding: clamp(25px, 5vw, 78px); color: #fff;
+  background: linear-gradient(0deg, #111f3ee8 0%, #1727453d 65%), #1c3358 url('/media/campus.jpg') 65% center / cover no-repeat; }
+.auth-visual h2 { max-width: 560px; font-size: clamp(2rem, 4vw, 4rem); letter-spacing: -.045em; }
+.auth-visual p { margin-top: 12px; color: #e3ebff; font-size: 1.05rem; }
+
+@media (max-width: 760px) {
+  .auth-layout { grid-template-columns: minmax(0, 1fr); }
+  .auth-content { min-height: 75dvh; padding: 24px; }
+  .auth-visual { min-height: 213px; background-position: center; }
+  .auth-visual h2 { font-size: 1.65rem; }
+  .auth-visual p { font-size: .9rem; }
+}

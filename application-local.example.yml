@@ -1,0 +1,13 @@
+# 复制为项目根目录下的 application-local.yml，再在本机填写。
+campusflow:
+  local:
+    database:
+      dev-jdbc-url: "jdbc:mysql://127.0.0.1:3306/campusflow_example?sslMode=REQUIRED&allowPublicKeyRetrieval=false&connectTimeout=3000&socketTimeout=10000&connectionTimeZone=%2B00:00&forceConnectionTimeZoneToSession=true"
+      dev-app-user: campusflow_example_app
+      dev-app-password: ""
+      dev-migrator-password: ""
+      test-app-password: ""
+      test-migrator-password: ""
+    jwt:
+      signing-key-base64: ""
+      test-signing-key-base64: ""

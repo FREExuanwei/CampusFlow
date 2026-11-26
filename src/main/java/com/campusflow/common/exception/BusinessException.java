@@ -1,0 +1,17 @@
+package com.campusflow.common.exception;
+
+import com.campusflow.common.api.ErrorCode;
+
+public final class BusinessException extends RuntimeException {
+
+    private final ErrorCode code;
+
+    public BusinessException(ErrorCode code) {
+        super(code.message());
+        this.code = code;
+    }
+
+    public ErrorCode code() {
+        return code;
+    }
+}

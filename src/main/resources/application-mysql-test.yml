@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    properties:
+      hibernate.default_catalog: campusflow_test
+
+campusflow:
+  auth:
+    issuer: campusflow-test
+    audience: campusflow-test-api
+
+server:
+  port: 18086

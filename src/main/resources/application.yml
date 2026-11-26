@@ -1,0 +1,72 @@
+spring:
+  application:
+    name: CampusFlow
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+  profiles:
+    default: dev
+    group:
+      mysql-dev: [dev]
+  sql:
+    init:
+      mode: never
+  flyway:
+    enabled: false
+    locations: classpath:db/migration
+    clean-disabled: true
+    create-schemas: false
+    baseline-on-migrate: false
+    validate-on-migrate: true
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.jdbc.time_zone: UTC
+
+campusflow:
+  auth:
+    signing-key-base64: ${campusflow.local.jwt.signing-key-base64:}
+    issuer: campusflow
+    audience: campusflow-api
+logging:
+  level:
+    # Hibernate's JDBC error includes the server message, which can echo rejected values.
+    org.hibernate.orm.jdbc.error: "OFF"
+
+server:
+  address: 127.0.0.1
+  error:
+    include-exception: false
+    include-message: never
+    include-binding-errors: never
+    include-stacktrace: never
+---
+spring:
+  config:
+    activate:
+      on-profile: "mysql-migrate | (mysql-dev & mysql-test) | (!mysql-dev & !mysql-test & !persistence-test)"
+  autoconfigure:
+    exclude: org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration
+---
+spring:
+  config:
+    activate:
+      on-profile: mysql-migrate
+  main:
+    web-application-type: none
+---
+spring:
+  config:
+    activate:
+      on-profile: "mysql-dev & !mysql-test & !mysql-migrate"
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${campusflow.database.jdbc-url}
+    username: ${campusflow.database.app-user}
+    password: ${campusflow.database.app-password}
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 0
+      connection-timeout: 4000
